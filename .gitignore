@@ -1,0 +1,274 @@
+# Creado por https://www.toptal.com/developers/gitignore/api/aspnetcore
+# Editar en https://www.toptal.com/developers/gitignore?templates=aspnetcore
+
+### ASPNETCore ###
+## Ignore los archivos temporales de Visual Studio, cree resultados y
+## archivos generados por complementos populares de Visual Studio.
+
+# Archivos específicos del usuario
+*.suo
+*.usuario
+*.userosscache
+*.sln.docstates
+
+# Archivos específicos del usuario ( MonoDevelop / Xamarin Studio )
+*.userprefs
+
+# Crear resultados
+[ Dd ] ebug/
+[ Dd ] ebugPublic/
+[ Rr ] deleite/
+[ Rr ] arrendamientos/
+x64/
+x86/
+bld/
+[ Bb ] en/
+[ Oo ] bj/
+[ Ll ] og/
+
+# Directorio de caché / opciones de Visual Studio 2015
+.vs/
+# Descomentar si tiene tareas que crean los archivos estáticos del proyecto en wwwroot
+#wwwroot/
+
+# Resultados de la prueba MSTest
+[ Tt ] est [ Rr ] resultado*/
+[ Bb ] uild [ Ll ] og.*
+
+# TONO
+*.VisualState.xml
+TestResult.xml
+
+# Crear resultados de un proyecto ATL
+[ Dd ] ebugPS/
+[ Rr ] eleleasePS/
+dlldata.c
+
+# DNX
+project.lock.json
+project.fragment.lock.json
+artefactos/
+
+*_i.c
+*_p.c
+*_i.h
+*.ilk
+*.meta
+*.obj
+*.pch
+*.pdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*.log
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+
+# Archivos de prueba de Chutzpah
+_Chutzpah*
+
+# Visual C + + archivos de caché
+ipch/
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+
+# Perfil de Visual Studio
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+# TFS 2012 Local Workspace
+$ tf/
+
+# Kit de herramientas de automatización de orientación
+*.gpState
+
+# ReSharper es un .Complemento de codificación NET
+_ReSharper*/
+*.[Rr ] e [ Ss ] harper
+*.DotSettings.user
+
+# JustCode es a .Complemento de codificación NET
+.JustCode
+
+# TeamCity es un complemento de compilación
+_TeamCity*
+
+# DotCover es una herramienta de cobertura de código
+*.dotCover
+
+# Resultados de cobertura de código de Visual Studio
+*.cobertura
+*.coveragexml
+
+# NCrunch
+_NCrunch_*
+.*crujiente * .local.xml
+nCrunchTemp_*
+
+# MightyMoose
+*.mm.*
+AutoTest.Net/
+
+# Banco de trabajo web ( sass )
+.sass-cache/
+
+# Carpeta de salida Installshield
+[ Ee ] xpress/
+
+# DocProject es un complemento de generador de documentación
+DocProject / buildhelp/
+DocProject / Help/*.HxT
+DocProject / Help/*.HxC
+DocProject / Help / *. Hhc
+DocProject / Help / *. Hhk
+DocProject / Help / *. Hhp
+DocProject / Help / Html2
+DocProject / Help / html
+
+# Directorio Click-Once
+publicar/
+
+# Publicar salida web
+*.[Pp ] publish.xml
+*.azurePubxml
+# TODO: comente la siguiente línea si desea verificar la configuración de su implementación web
+# pero las cadenas de conexión de la base de datos ( con contraseñas potenciales ) no se cifrarán
+*.pubxml
+*.publishproj
+
+# La aplicación web Microsoft Azure publica configuraciones. Comente la siguiente línea si desea
+# verifique la configuración de publicación de su aplicación web Azure, pero la información confidencial contenida
+# en estos scripts no se cifrarán
+PublishScripts/
+
+# Paquetes NuGet
+*.nupkg
+# La carpeta de paquetes se puede ignorar debido a la restauración del paquete
+**/paquetes/*
+# excepto build /, que se usa como un objetivo MSBuild.
+!**/paquetes / construir/
+# Descomentar si es necesario, sin embargo, generalmente se regenerará cuando sea necesario
+#!**/packages / repositories.config
+# Los archivos project.json de # NuGet v3 producen archivos más ignorables
+*.nuget.props
+*.nuget.targets
+
+# Microsoft Azure Build Output
+csx/
+*.build.csdef
+
+# Microsoft Azure Emulator
+ecf/
+rcf/
+
+# Directorios y archivos de paquetes de aplicaciones de Windows Store
+AppPackages/
+BundleArtifacts/
+Package.StoreAssociation.xml
+_pkginfo.txt
+
+# Archivos de caché de Visual Studio
+# los archivos que terminan en .cache pueden ignorarse
+*.[Cc ] dolor
+# pero realice un seguimiento de los directorios que terminan en .cache
+!*.[Cc ] dolor/
+
+# Otros
+ClientBin/
+~ $*
+*~
+*.dbmdl
+*.dbproj.schemaview
+*.jfm
+*.pfx
+*.publishsettings
+node_modules/
+orleans.codegen.cs
+
+# Como hay múltiples flujos de trabajo, descomente la siguiente línea para ignorar bower_components
+# ( https://github.com/github/gitignore/pull/1529#issuecomment-104372622)
+#bower_components/
+
+# Proyectos RIA / Silverlight
+Código generado/
+
+# Copia de seguridad e informes de archivos de conversión de un archivo de proyecto antiguo
+# a una nueva versión de Visual Studio. No se necesitan archivos de respaldo,
+# porque tenemos git; - )
+_UpgradeReport_Files/
+Copia de seguridad*/
+UpgradeLog*.XML
+UpgradeLog * .htm
+
+# Archivos de SQL Server
+*.mdf
+*.ldf
+
+# Proyectos de inteligencia empresarial
+*.rdl.data
+*.bim.layout
+*.bim_ * .settings
+
+# Microsoft Fakes
+FakesAssemblies/
+
+# Archivo de configuración del complemento GhostDoc
+*.GhostDoc.xml
+
+# Node.js Herramientas para Visual Studio
+.ntvs_analysis.dat
+
+# Visual Studio 6 build log
+*.plg
+
+# Archivo de opciones de espacio de trabajo de Visual Studio 6
+*.opt
+
+# Salida de compilación de Visual Studio LightSwitch
+**/*.HTMLClient / Artefactos Generados
+**/*.DesktopClient / GeneratedArtifacts
+**/*.DesktopClient / ModelManifest.xml
+**/*.Servidor / Artifactos Generados
+**/*.Server / ModelManifest.xml
+_Pvt_Extensions
+
+# Paket dependiente manager
+.paket / paket.exe
+paquetes de paquetes/
+
+# FALSO - F # Make
+.falso/
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# CodeRush
+.cr/
+
+# Herramientas de Python para Visual Studio ( PTVS )
+__pycache__/
+*.pyc
+
+# Pastel - Descomenta si lo estás usando
+# herramientas/
+
+# Fin de https://www.toptal.com/developers/gitignore/api/aspnetcore
