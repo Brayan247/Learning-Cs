@@ -1,6 +1,6 @@
 ﻿using ApiExample.Database;
 using ApiExample.Models;
-using ApiExample.UseCases;
+using ApiExample.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiExample.Controllers
@@ -23,7 +23,7 @@ namespace ApiExample.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetClients()
         {
-            var result = _apiExampleContext.Client.Select(c => c.ToModel()).ToList();
+            var result = _apiExampleContext.GetAll();
 
             return new OkObjectResult(result);
         }

@@ -1,5 +1,6 @@
 using ApiExample.Database;
 using ApiExample.UseCases;
+using ApiExample.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

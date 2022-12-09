@@ -1,12 +1,9 @@
 ﻿using ApiExample.Database;
 using ApiExample.Models;
+using ApiExample.Interfaces;
 
 namespace ApiExample.UseCases
 {
-    public interface IUpdateClientUseCase
-    {
-        Task<Client?> Execute(Client client);
-    }
     public class UpdateClientUseCase : IUpdateClientUseCase
     {
         private readonly ApiExampleContext _apiExampleContext;
@@ -27,7 +24,7 @@ namespace ApiExample.UseCases
             entity.Email = client.Email;
             entity.Phone = client.Phone;
             entity.Address = client.Address;
-            await _apiExampleContext.Update(entity);
+            _apiExampleContext.Update(entity);
             return entity.ToModel();
         }
     }
