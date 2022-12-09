@@ -14,13 +14,13 @@ namespace ApiExample.Database
 
         public List<ClientEntity> GetAll()
         {
-            List<ClientEntity> result = Client.FromSqlRaw("getAllClients()").ToList();
+            List<ClientEntity> result = Client.FromSqlRaw(sql:"getAllClients()").ToList();
             return result;
         }
 
         public DbSet<ClientEntity> Client { get; set; }
 
-        public async Task<ClientEntity?> Get(long id)
+        public async Task<ClientEntity> Get(long id)
         {
             return await Client.FirstOrDefaultAsync(x => x.Id == id);
         }
@@ -37,14 +37,14 @@ namespace ApiExample.Database
                 Address = createClient.Address,
             };
 
-            EntityEntry<ClientEntity> response = await Client.AddAsync(entity);
+            Client.FromSqlRaw("createClient("+entity+")");
             await SaveChangesAsync();
-            return await Get(response.Entity.Id ?? throw new Exception("No se ah podido guardar el cliente"));
+            return entity;
         }
 
         public async Task<bool> Update(ClientEntity client)
         {
-            Client.Update(client);
+            Client.FromSqlRaw(sql:"updateClient("+client+")");
             await SaveChangesAsync();
             return true;
         } 
@@ -52,7 +52,7 @@ namespace ApiExample.Database
         public async Task<bool> Delete( long id)
         {
             ClientEntity entity = await Get(id);
-            Client.Remove(entity);
+            Client.FromSqlRaw(sql:"deleteClient("+entity+")");
             await SaveChangesAsync();
             return true;
         }

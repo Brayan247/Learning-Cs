@@ -24,7 +24,6 @@ namespace ApiExample.Controllers
         public async Task<IActionResult> GetClients()
         {
             var result = _apiExampleContext.GetAll();
-
             return new OkObjectResult(result);
         }
 
