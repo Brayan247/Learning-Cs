@@ -10,12 +10,12 @@ namespace ApiExample.Controllers
     public class ClientController : Controller
     {
         private readonly ApiExampleContext _apiExampleContext;
-        private readonly IUpdateClientUseCase _updateClientUseCase;
+        private readonly IClientUseCase _clientUseCase;
 
-        public ClientController(ApiExampleContext apiExampleContext, IUpdateClientUseCase updateClientUseCase)
+        public ClientController(ApiExampleContext apiExampleContext, IClientUseCase updateClientUseCase)
         {
             _apiExampleContext = apiExampleContext;
-            _updateClientUseCase = updateClientUseCase;
+            _clientUseCase = updateClientUseCase;
         }
 
         // Get all clients
@@ -27,32 +27,36 @@ namespace ApiExample.Controllers
             return new OkObjectResult(result);
         }
 
-        // Get client by Id
+        // Get client by Idcliente
         [HttpGet("{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Client))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Cliente))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetClient(long id)
+        public async Task<IActionResult> GetClient(int id)
         {
-            ClientEntity result = await _apiExampleContext.Get(id);
+            ClienteEntity result = await _apiExampleContext.Get(id);
             return new OkObjectResult(result.ToModel());
         }
 
         // Create client
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(Client))]
-        public async Task<IActionResult> CreateClient(CreateClient client)
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CreateCliente))]
+        public async Task<IActionResult> CreateClient(CreateCliente client)
         {
-            ClientEntity result =  await _apiExampleContext.Add(client);
-            return new CreatedResult($"https://localhost:7212/api/client/{result.Id}", null);
+            var result =  await _clientUseCase.Add(client);
+            if (result == null)
+            {
+                return new EmptyResult();
+            }
+            return new OkObjectResult(result);
         }
 
         // Edit client
         [HttpPut]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Client))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Cliente))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> EditClient(Client client)
+        public async Task<IActionResult> EditClient(Cliente client)
         {
-            Client? result = await _updateClientUseCase.Execute(client);
+            var result = await _clientUseCase.Update(client);
             if(result == null)
             {
                 return new NotFoundResult();
@@ -62,11 +66,15 @@ namespace ApiExample.Controllers
 
         // Delete client
         [HttpDelete("{id}")]
-        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(bool))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Cliente))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> DeleteClient(long id)
+        public async Task<IActionResult> DeleteClient(int id)
         {
-            var result = await _apiExampleContext.Delete(id);
+            var result = await _clientUseCase.Delete(id);
+            if (result == null)
+            {
+                return new NotFoundResult();
+            }
             return new OkObjectResult(result);
         }
     }

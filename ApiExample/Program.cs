@@ -14,12 +14,12 @@ builder.Services.AddSwaggerGen();
 // Standart urls
 builder.Services.AddRouting(routing => routing.LowercaseUrls = true);
 // Database conection
-builder.Services.AddDbContext<ApiExampleContext>(mysqlBuilder =>
+builder.Services.AddDbContext<ApiExampleContext>(sqlServerBuilder =>
 {
-    mysqlBuilder.UseMySQL(builder.Configuration.GetConnectionString("MySqlConnection"));
+    sqlServerBuilder.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer"));
 });
 
-builder.Services.AddScoped<IUpdateClientUseCase, UpdateClientUseCase>();
+builder.Services.AddScoped<IClientUseCase, ClientUseCase>();
 
 var app = builder.Build();
 
