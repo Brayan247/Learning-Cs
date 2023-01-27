@@ -8,10 +8,11 @@ namespace ApiExample.Database
 {
     public class ApiExampleContext : DbContext
     {
-        public ApiExampleContext(DbContextOptions<ApiExampleContext> options)
+        private readonly IConfiguration _configuration;
+        public ApiExampleContext(DbContextOptions<ApiExampleContext> options, IConfiguration configuration)
             : base(options)
         {
-
+            _configuration = configuration;
         }
 
         public DbSet<ClienteEntity> Cliente { get; set; }
@@ -31,7 +32,7 @@ namespace ApiExample.Database
         public async Task<bool> AddClient(CreateCliente client)
         {
             bool result = false;
-            using(SqlConnection connection = new SqlConnection("Server=localhost;DataBase=csApi;Integrated Security=true;Encrypt=false"))
+            using(SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("SqlServer")))
             {
                 // Creamos el comando y le pasamos sus propiedades
                 SqlCommand command = new SqlCommand();
@@ -113,7 +114,7 @@ namespace ApiExample.Database
         {
             bool result = false;
 
-            using(SqlConnection connection = new SqlConnection("Server=localhost;DataBase=csApi;Integrated Security=true;Encrypt=false"))
+            using(SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("SqlServer")))
             {
                 // Creamos el comando y le pasamos sus propiedades
                 SqlCommand command = new SqlCommand();
